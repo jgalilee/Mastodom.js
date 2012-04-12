@@ -37,3 +37,14 @@ masterdom.js createElement()
       ]
     });
 
+Clarification of type
+---------------------
+
+Specifying a list of element types creates a tree branch of the elements specified.
+It applies the element settings to the leaf element.
+
+    <div>
+        <span>
+            <img src="cat1.jpg"></img>
+        </span>
+    </div>
