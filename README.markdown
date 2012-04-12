@@ -3,7 +3,7 @@ masterdom.js
 
 document.createElement()
 -----------------------
-`
+
     conversation = document.createElement('div');
     Jack1 = document.createElement('div');
     Jack1.innerHTML = 'Jack: Hey Richie';
@@ -20,11 +20,11 @@ document.createElement()
     catDiv.appendChild(cat);
     conversation.appendChild(catDiv);
     document.body.appendChild(conversation);
-`
+
+
 masterdom.js createElement()
 ---------------------------
-`
-    <!-- masterdom -->
+
     createElement({
       parent: document.body,
       type: 'div',
@@ -36,4 +36,4 @@ masterdom.js createElement()
         }
       ]
     });
-`
+
