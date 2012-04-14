@@ -1,4 +1,4 @@
-# masterdom.js
+# mastodom.js
 
 ## Javascript alias
 
@@ -56,7 +56,7 @@ document.createElement()
     document.body.appendChild(conversation);
 
 
-masterdom.js createElement()
+mastodom.js createElement()
 ---------------------------
 
     createElement({
