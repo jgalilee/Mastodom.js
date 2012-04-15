@@ -1,11 +1,14 @@
 /**
  * MASTODOM.JS
  * =========================================================
- * author: Jack Galilee
+ * author: Jack Galilee, Max Brosnahan
  * date: 13th April 2011
- * version: 0.1
+ * version: 0.2
  */
 
+/*
+ * Protect the object methods from being overidden.
+ */
 if(!Function.prototype.build){
   Object.defineProperty(Function.prototype, 'build', {
     value: function(attrMap) {
@@ -140,4 +143,3 @@ var defaultElementType = 'div';
 		}
 	});
 }());
-

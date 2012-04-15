@@ -25,8 +25,8 @@ if(!Function.prototype.build){
 var Mn, Mastodom;
 Mastodom = Mn = (function Mastodom() {
 var defaultElementType = 'div';
-  
-		
+
+
 	var createEl = function(settings) {
 	
 			// Leaf element
