@@ -45,13 +45,37 @@ var defaultElementType = 'div';
 			if (settings.type instanceof Array) {
 				for(var key in settings.type) {
 					var value = settings.type[key];
-					var tempElement = document.createElement(value);
-					if(newElement) {
-					newElement.appendChild(tempElement);
-					} else {
-					newRootElement = tempElement;
-					}
-					newElement = tempElement;
+
+                    var tempElement;
+                    
+                    /*
+                     * If an array argument is an element, append the leftmost
+                     * child of the element, or the element if there are no
+                     * children.
+                     */
+                    if(value instanceof Element){
+                        value = value.cloneNode(true);
+                        if(newElement) {
+                            newElement.appendChild(value);
+                        } else {
+                            newRootElement = value;
+                        }
+                        while(value.childElementCount > 0){
+                            value = value.children[0];
+                        }
+                        newElement = value;
+                    } else {
+
+                        var tempElement = document.createElement(value);
+                        if(newElement) {
+                            newElement.appendChild(tempElement);
+                        } else {
+                            newRootElement = tempElement;
+                        }
+                        newElement = tempElement;
+                    }
+
+					
 				}
 			
 			/*
