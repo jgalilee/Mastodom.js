@@ -1,7 +1,7 @@
 /**
  * MASTODOM.JS
  * =========================================================
- * author: Jack Galilee
+ * author: Jack Galilee, Max Brosnahan
  * date: 13th April 2011
  * version: 0.1
  */
