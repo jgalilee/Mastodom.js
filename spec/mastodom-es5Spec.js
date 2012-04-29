@@ -49,6 +49,38 @@ describe("Mastodom", function() {
         });
         expect(node.firstChild).toBeDefined();
       });
+      
+      it("should be able to use existing dom nodes structure while nesting", function() {
+          var node = window.Mn.createElement({
+            type: ['div', 'span'],
+            content: 'hello world'
+          });
+          var nesty = window.Mn.createElement({
+              type: ['div', node, 'img']
+          });
+          expect(nesty.firstChild.firstChild.firstChild).toBeDefined();
+          expect(nesty.firstChild.firstChild.nodeName == 'SPAN').toBeTruthy();
+      });
+      
+      it("should use the leftmost leaf of a structure when nesting", function() {
+          var node = window.Mn.createElement({
+              type:['div'],
+              children:[{ type: 'span'},{type: 'div'}]
+          });
+          var nesty = window.Mn.createElement({
+              type: ['div', node, 'img']
+          });
+          expect(nesty.firstChild.firstChild.nodeName == 'SPAN').toBeTruthy();
+          
+          var node2 = window.Mn.createElement({
+              type:['div'],
+              children:[{ type: 'div'},{type: 'span'}]
+          });
+          var nesty2 = window.Mn.createElement({
+              type: ['div', node2, 'img']
+          });
+          expect(nesty2.firstChild.firstChild.nodeName == 'SPAN').toBeFalsy();
+      });
 
       it("should be able to attached defined attributes to nodes", function() {
         var node = window.Mn.createElement({

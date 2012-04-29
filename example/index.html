@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Easy</title>
-	<script type="text/javascript" src="../src/mastodom.js"></script>
+	<script type="text/javascript" src="../src/mastodom-es5.js"></script>
 	<script type="text/javascript">
 		function ready() {
 
@@ -10,7 +10,7 @@
 				children: [
 					{ type: 'div', content: 'Jack: Hey Richie!' },
 					{ type: 'div', content: 'Richie: Hey Jack!' },
-					{ type: 'div', content: 'Jack: Check out this picture of a cat!', children: [
+					{ type: 'div', content: 'Jack: Check out this picture of a mastodom!', children: [
 						{ type: ['div', 'span', 'img'], attributes: { src: 'mastodom.gif'} }]
 					}
 				]
@@ -24,7 +24,7 @@
 			Richie1.innerHTML = 'Richie: Hey Jack';
 			dom_conversation.appendChild(Richie1);
 			Jack2 = document.createElement('div');
-			Jack2.innerHTML = 'Jack: Check out this picture of a cat!';
+			Jack2.innerHTML = 'Jack: Check out this picture of a mastodom!';
 			dom_conversation.appendChild(Jack2);
 			catDiv = document.createElement('div');
 			catSpan = document.createElement('span')
