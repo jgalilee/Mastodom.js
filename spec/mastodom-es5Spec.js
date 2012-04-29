@@ -77,6 +77,46 @@ describe("Mastodom", function() {
 
     });
 
-  });
+    describe("Generators", function() {
 
+      it("should evaluate functions as values", function() {
+        expect(window.Mn.createElement({
+          type: function() {
+                  return "DIV";
+                }
+        }).nodeName).toEqual('DIV');
+      });
+
+      it("should accept a function for generating children", function() {
+        expect(window.Mn.createElement({
+          type: "div",
+          children: function() {
+                      return [
+                        { type: "div" },
+                        { type: "div" }
+                      ];
+                    }
+        }).hasChildNodes()).toBeTruthy();
+      });
+
+      it("should accept nested functions", function() {
+        expect(window.Mn.createElement({
+          type: "div",
+          children: function() {
+                      return [
+                        { type: function() {
+                                  return "div";
+                                }
+                        },
+                        { type: function() {
+                                  return "div";
+                                }
+                        }
+                      ];
+                    }
+        }).hasChildNodes()).toBeTruthy();
+      });
+    });
+
+  });
 });
