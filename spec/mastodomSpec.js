@@ -10,7 +10,7 @@ describe("mastodom", function(){
     expect(window.Mastodom).toBeDefined();
     expect(window.Mn).toEqual(window.Mastodom);
   });
-  
+
   it("has a default element type, which is a 'div'", function(){
     expect(window.Mn.defaultElementType).toEqual('div');
   });
@@ -46,7 +46,7 @@ describe("mastodom", function(){
   });
 
   it("creates nested nodes", function(){
-  
+
     var parent = document.createElement('div');
     var domToCreate = {
       parent: parent,
@@ -70,7 +70,7 @@ describe("mastodom", function(){
 
     expect(createdDom).toBeDefined();
     expect(createdDom.children.length).toEqual(domToCreate.children.length);
-    
+
     domToCreate.children.forEach(function(value, row1){
       domToCreate.children[row1].children.forEach(function(value, row2){
         expect(value.content).toEqual("content-" +row1 + row2 );
@@ -109,7 +109,7 @@ describe("mastodom", function(){
     var domToCreate = {
     parent: parent,
     type: ['h1', 'h2', 'h3']
-    
+
     };
     window.Mn.createElement(domToCreate);
     var createdDom = parent.childNodes[0];
@@ -129,7 +129,7 @@ describe("mastodom", function(){
       type: ['h1', 'h2', 'h3'],
       children: [
         {
-        type: 'h4', 
+        type: 'h4',
         children: [
           {type: 'h5'}
         ]
