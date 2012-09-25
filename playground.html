@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="src/Mastodom.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+  Mn({
+    parent: document.body,
+    type: ['div', 'span', 'a'],
+    content: 'Hello World',
+    attributes: { href: '#' },
+    events: {
+      click: function(event) {
+        console.log('Hi there link!', event);
+      }
+    }
+  });
+
+  /*
+   * Yields
+   * --------------
+   * <div>
+   *   <span>
+   *     <a href="#">
+   *       Hello World
+   *     </a>
+   *   </span>
+   * </div>
+   */
+</script>
+</html>

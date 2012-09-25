@@ -89,3 +89,51 @@ It applies the element settings to the leaf element.
   </span>
 </div>
 ````
+
+
+I don't get it … why would I use this?
+-----------------------------------
+
+This is a good question. If you've ever built a full scale mobile or desktop application using one
+of the many available MVC frameworks
+
+Model.js
+
+````js
+
+/*
+ * Simple model that we will persist with local browser storage
+ */
+
+var Task = function(attributes) {
+  this._is = {
+    completed = true;
+  }
+  if(undefined !== attributes) {
+    this._attributes = attributes;
+  } else {
+    this._attributes = {};
+  }
+}
+
+Task.prototype.is = function(what) {
+  return this._is[what];
+}
+
+Task.prototype.complete = function() {
+  if(undefined === this.is('completed') || this.is('completed') == false) {
+    return this._is['completed'] = true;
+  } else {
+    return false;
+  }
+}
+
+````
+
+Controller.js
+
+````js
+
+
+
+````
