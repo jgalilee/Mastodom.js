@@ -1,63 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>mastodom.js by jgalilee</title>
-    
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <title>Mastodom.js by jgalilee</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>mastodom.js</h1>
-        <p></p>
-        <p class="view"><a href="https://github.com/jgalilee/mastodom">View the Project on GitHub <small>jgalilee/mastodom</small></a></p>
-        <ul>
-          <li><a href="https://github.com/jgalilee/mastodom/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jgalilee/mastodom/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jgalilee/mastodom">Fork On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>masterdom.js</h1>
+    <div id="container">
+      <div class="inner">
 
-<h2>Javascript alias</h2>
+        <header>
+          <h1>Mastodom.js</h1>
+          <h2></h2>
+        </header>
 
-<p>Mastodom can be called using Mn (because if you look hard and make a wish it kind of starts to look like a mastodon) or Mastodom.
-You can't (as far as I know) make a new instance of mastdom.js and it won't even work with the new command.</p>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/jgalilee/Mastodom.js/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/jgalilee/Mastodom.js/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/jgalilee/Mastodom.js" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>About</h2>
+
+<p>Mastodom is a simple library, without any dependencies. It does the grunt work of writing low level document node creation, while still providing you with access to the low level, browser specific api.</p>
+
+<p>It is useful when you don't need the power of jQuery or Zepto, and even more powerful when used in conjunction.</p>
 
 <h2>Methods</h2>
 
-<h3>getDefaultElementType()</h3>
+<p>There are none. Mastodom has been refactored into a single function taking an anonymous objects that works as a specification. </p>
 
-<p>Returns the default element type, by default this is 'div'.</p>
+<p>Mastodom can be called using Mn or Mastodom. Mn (because if you look hard and make a wish it kind of starts to look like a mastodon).</p>
 
-<h3>setDefaultElementType(newType)</h3>
+<p>Everything in a specification is optional. If no type is defined in the specification a div will be used. The root of the resulting DOM tree is always returned.</p>
 
-<p>Sets the default element type to newType (must be an instance of a string). Returns true if the type was changed, false otherwise.</p>
-
-<h3>createElement()</h3>
-
-<p>Accepts the following specification. Everything in the specification is option. If no type is defined the default type is used.
-Returns the root of the resulting DOM tree.</p>
-
-<pre><code>{
-    parent: object, // Reference to the parent element. Can also be blank, can't be a specification.
-    type: '',  // Type of element to construct. Can also be a list of types where each is a child of the previous.
-    content: 'Hello World', // Inner HTML of the element.
-    attributes: { // Optional attributes (added as key="value") for the element.
-        id: '',
-        class: ''
-    },
-    children: [] // List of specifications or DOM objects to append to the specified dom element.
-}
-</code></pre>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="c1">// Reference to the parent element. Can also be blank, </span>
+  <span class="nx">parent</span><span class="o">:</span> <span class="nx">object</span><span class="p">,</span> <span class="nx">can</span> <span class="nx">not</span> <span class="nx">be</span> <span class="nx">a</span> <span class="nx">specification</span><span class="p">.</span>
+  <span class="c1">// Type of element to construct. Can also be a list of types where each is a child of the previous.</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="c1">// Inner HTML of the element.</span>
+  <span class="nx">content</span><span class="o">:</span> <span class="s1">'Hello World'</span><span class="p">,</span>
+  <span class="nx">attributes</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// Optional attributes (added as key="value") for the element.</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="kr">class</span><span class="o">:</span> <span class="s1">''</span>
+   <span class="p">},</span>
+   <span class="c1">// List of specifications or DOM objects, they will be appended to the element.</span>
+   <span class="nx">children</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
 
 <h2>Example</h2>
 
@@ -65,57 +68,95 @@ Returns the root of the resulting DOM tree.</p>
 
 <h2>document.createElement()</h2>
 
-<pre><code>conversation = document.createElement('div');
-Jack1 = document.createElement('div');
-Jack1.innerHTML = 'Jack: Hey Richie';
-conversation.appendChild(Jack1);
-Richie1 = document.createElement('div');
-Richie1.innerHTML = 'Richie: Hey Jack';
-conversation.appendChild(Richie1);
-Jack2 = document.createElement('div');
-Jack2.innerHTML = 'Jack: Check out this picture of a cat!';
-conversation.appendChild(Jack2);
-catDiv = document.createElement('div');
-cat = document.createElement('img')
-cat.setAttribute('src', 'cat1.jpg')
-catDiv.appendChild(cat);
-conversation.appendChild(catDiv);
-document.body.appendChild(conversation);
-</code></pre>
+<div class="highlight"><pre><span class="nx">conversation</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<span class="nx">Jack1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<span class="nx">Jack1</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'Jack: Hey Richie'</span><span class="p">;</span>
+<span class="nx">conversation</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">Jack1</span><span class="p">);</span>
+<span class="nx">Richie1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<span class="nx">Richie1</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'Richie: Hey Jack'</span><span class="p">;</span>
+<span class="nx">conversation</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">Richie1</span><span class="p">);</span>
+<span class="nx">Jack2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<span class="nx">Jack2</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'Jack: Check out this picture of a cat!'</span><span class="p">;</span>
+<span class="nx">conversation</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">Jack2</span><span class="p">);</span>
+<span class="nx">catDiv</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<span class="nx">cat</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'img'</span><span class="p">)</span>
+<span class="nx">cat</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'src'</span><span class="p">,</span> <span class="s1">'cat1.jpg'</span><span class="p">)</span>
+<span class="nx">catDiv</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">cat</span><span class="p">);</span>
+<span class="nx">conversation</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">catDiv</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">conversation</span><span class="p">);</span>
+</pre></div>
 
-<h2>masterdom.js createElement()</h2>
+<h2>Mastodom()</h2>
 
-<pre><code>createElement({
-  parent: document.body,
-  type: 'div',
-  children: [
-    { type: 'div', content: 'Jack: Hey Richie!' },
-    { type: 'div', content: 'Richie: Hey Jack!' },
-    { type: 'div', content: 'Jack: Check out this picture of a cat!', children: [
-      { type: ['div', 'span', 'img'], attributes: { src: 'cat1.jpg'} }]
-    }
-  ]
-});
-</code></pre>
+<div class="highlight"><pre><span class="nx">Mastodom</span><span class="p">({</span>
+  <span class="nx">parent</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'div'</span><span class="p">,</span>
+  <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">'div'</span><span class="p">,</span> <span class="nx">content</span><span class="o">:</span> <span class="s1">'Jack: Hey Richie!'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">'div'</span><span class="p">,</span> <span class="nx">content</span><span class="o">:</span> <span class="s1">'Richie: Hey Jack!'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">'div'</span><span class="p">,</span> <span class="nx">content</span><span class="o">:</span> <span class="s1">'Jack: Check out this picture of a cat!'</span><span class="p">,</span> <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="p">[</span><span class="s1">'div'</span><span class="p">,</span> <span class="s1">'span'</span><span class="p">,</span> <span class="s1">'img'</span><span class="p">],</span> <span class="nx">attributes</span><span class="o">:</span> <span class="p">{</span> <span class="nx">src</span><span class="o">:</span> <span class="s1">'cat1.jpg'</span><span class="p">}</span> <span class="p">}]</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">});</span>
+</pre></div>
 
 <h2>Clarification of type</h2>
 
 <p>Specifying a list of element types creates a tree branch of the elements specified.
 It applies the element settings to the leaf element.</p>
 
-<pre><code>&lt;div&gt;
-    &lt;span&gt;
-        &lt;img src="cat1.jpg"&gt;&lt;/img&gt;
-    &lt;/span&gt;
-&lt;/div&gt;
-</code></pre>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jgalilee">jgalilee</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;span&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"cat1.jpg"</span><span class="nt">&gt;&lt;/img&gt;</span>
+  <span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h2>I don't get it … why would I use this?</h2>
+
+<p>This is a good question. If you've ever built a full scale mobile or desktop application using one
+of the many available MVC frameworks</p>
+
+<p>Model.js</p>
+
+<div class="highlight"><pre>
+<span class="cm">/*</span>
+<span class="cm"> * Simple model that we will persist with local browser storage</span>
+<span class="cm"> */</span>
+
+<span class="kd">var</span> <span class="nx">Task</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attributes</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">_is</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">completed</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">!==</span> <span class="nx">attributes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_attributes</span> <span class="o">=</span> <span class="nx">attributes</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_attributes</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">Task</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">is</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">what</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_is</span><span class="p">[</span><span class="nx">what</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="nx">Task</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">complete</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s1">'completed'</span><span class="p">)</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s1">'completed'</span><span class="p">)</span> <span class="o">==</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_is</span><span class="p">[</span><span class="s1">'completed'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</pre></div>
+        </section>
+
+        <footer>
+          Mastodom.js is maintained by <a href="https://github.com/jgalilee">jgalilee</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
   </body>
 </html>
